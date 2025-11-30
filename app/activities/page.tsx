@@ -6,6 +6,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { fetchActivities } from '@/lib/data/activities';
+import { formatDate } from '@/lib/utils/dateFormatter';
 import { Calendar } from 'lucide-react';
 
 // ISR（Incremental Static Regeneration）を有効化 - 60秒ごとに再検証
@@ -88,10 +89,19 @@ export default async function Activities() {
                   <h3 className="text-xl font-bold text-stone-800 mb-2 leading-tight">
                     {activity.title}
                   </h3>
-                  <div className="flex items-center text-sm text-stone-500">
+                  <div className="flex items-center text-sm text-stone-500 mb-1">
                     <Calendar className="h-4 w-4 mr-1" />
-                    {activity.date}
+                    {formatDate(activity.date)}
                   </div>
+                  {activity.place && (
+                    <div className="flex items-center text-sm text-stone-500">
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {activity.place}
+                    </div>
+                  )}
                 </div>
               </Link>
             ))}
@@ -124,10 +134,19 @@ export default async function Activities() {
                   <h3 className="text-xl font-bold text-stone-800 mb-2 leading-tight">
                     {activity.title}
                   </h3>
-                  <div className="flex items-center text-sm text-stone-500">
+                  <div className="flex items-center text-sm text-stone-500 mb-1">
                     <Calendar className="h-4 w-4 mr-1" />
-                    {activity.date}
+                    {formatDate(activity.date)}
                   </div>
+                  {activity.place && (
+                    <div className="flex items-center text-sm text-stone-500">
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {activity.place}
+                    </div>
+                  )}
                 </div>
               </Link>
             ))}

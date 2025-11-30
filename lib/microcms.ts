@@ -29,6 +29,7 @@ type MicroCMSActivity = {
   image?: {          // imageUrlではなくimage
     url: string;
   };
+  place?: string;    // 開催場所
 };
 
 export async function getActivities(): Promise<Activity[]> {
@@ -44,6 +45,7 @@ export async function getActivities(): Promise<Activity[]> {
     category: item.category,
     body: item.body,
     image: item.image?.url || '',
+    place: item.place,
   }));
 }
 
@@ -61,6 +63,7 @@ export async function getActivityById(id: string): Promise<Activity> {
     category: data.category,
     body: data.body,
     image: data.image?.url || '',
+    place: data.place,
   };
 }
 

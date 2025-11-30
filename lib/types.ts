@@ -13,6 +13,7 @@ export interface Activity {
   tag: 'Plan' | 'Past'; // 活動タイプ（予定/過去）
   body: string;         // 活動の説明文
   image: string;        // サムネイル画像のURL
+  place?: string;       // 開催場所（オプション）
 }
 
 /**
