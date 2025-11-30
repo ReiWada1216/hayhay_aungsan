@@ -69,11 +69,10 @@ export default async function ActivityDetailPage({
 
           {/* Content */}
           <div className="bg-white rounded-lg shadow-md p-8">
-            <div className="prose prose-earth max-w-none">
-              <p className="text-lg text-earth-700 leading-relaxed whitespace-pre-wrap">
-                {activity.body}
-              </p>
-            </div>
+            <div 
+              className="prose prose-earth max-w-none"
+              dangerouslySetInnerHTML={{ __html: activity.body }}
+            />
           </div>
 
           {/* Back Button */}
